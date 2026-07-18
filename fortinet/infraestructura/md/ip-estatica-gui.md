@@ -1,4 +1,4 @@
-# Configurar IP estatica 
+# Configurar IP estatica por GUI 
 1. Accedemos al menú de Interfaces.
 
 2. Seleccionamos el puerto en cuestión.

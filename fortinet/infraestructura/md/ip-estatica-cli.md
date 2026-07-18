@@ -1,5 +1,4 @@
-# # Configurar IP estatica por CLI
-## Por interfaz grafica 
+# Configurar IP estatica por CLI
 1. Accedemos ya sea web o SHH a la interface en cuestión
 
 2. Verificamos que si tenemos dhcp o no activado 

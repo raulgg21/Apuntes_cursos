@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apuntes de Bases de Datos</title>
+    <meta
+      name="description"
+      content="Documentación completa y moderna sobre Bases de Datos, SQL, T-SQL, MongoDB y diseño relacional."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img" aria-label="Icono de base de datos">
+              <path d="M32 8c-9.9 0-18 2.3-18 5v6c0 2.7 8.1 5 18 5s18-2.3 18-5v-6c0-2.7-8.1-5-18-5Zm-18 15v8c0 2.7 8.1 5 18 5s18-2.3 18-5v-8" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M14 31v8c0 2.7 8.1 5 18 5s18-2.3 18-5v-8" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M14 40v8c0 2.7 8.1 5 18 5s18-2.3 18-5v-8" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Base de Datos</h1>
+            <p>Apuntes y cheatsheets</p>
+          </div>
+        </div>
+
+        <label class="search-box">
+          <span>🔎</span>
+          <input id="searchInput" type="search" placeholder="Buscar tema o palabra..." />
+        </label>
+
+        <nav class="sidebar-nav" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#tema-1">Tema 1</a>
+          <a href="#tema-2">Tema 2</a>
+          <a href="#tema-3">Tema 3</a>
+          <a href="#tema-4">Tema 4</a>
+          <a href="#tema-5">Tema 5</a>
+          <a href="#tema-6">Tema 6</a>
+          <a href="#tema-7">Tema 7</a>
+          <a href="#tema-8">Tema 8</a>
+          <a href="#tema-9">Tema 9</a>
+          <a href="#tema-10">Tema 10</a>
+          <a href="#mongodb">MongoDB</a>
+          <a href="#extras">Extras</a>
+        </nav>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar tema">
+          <span class="toggle-icon">🌙</span>
+          <span>Modo oscuro</span>
+        </button>
+      </aside>
+
+      <main class="content">
+        <header class="hero" id="inicio">
+          <div>
+            <p class="eyebrow">GitHub Pages · HTML5 · CSS3 · JavaScript</p>
+            <h2>Guía completa de Bases de Datos</h2>
+            <p class="hero-copy">
+              Una documentación moderna, visual y fácil de consultar para estudiar SQL, diseño de bases de datos,
+              Transact-SQL, procedimientos, triggers, cursores y MongoDB.
+            </p>
+          </div>
+          <div class="hero-stats">
+            <article class="stat-card">
+              <strong>10</strong>
+              <span>temas clave</span>
+            </article>
+            <article class="stat-card">
+              <strong>∞</strong>
+              <span>ejemplos</span>
+            </article>
+          </div>
+        </header>
+
+        <section class="toc-card" aria-label="Índice automático">
+          <div class="section-heading">
+            <span class="label">Índice automático</span>
+            <h3>Navegación rápida</h3>
+          </div>
+          <ul class="toc-list" id="tocList"></ul>
+        </section>
+
+        <section class="section-grid overview-cards" aria-label="Resumen del curso">
+          <article class="doc-card" data-keywords="base datos sgbd arquitectura ddl dml dcl tcl">
+            <h3>Fundamentos</h3>
+            <p>Conoce qué es una base de datos, cómo funciona un SGBD y la arquitectura de los sistemas modernos.</p>
+          </article>
+          <article class="doc-card" data-keywords="modelo entidad relacion er cardinalidad atributos relaciones">
+            <h3>MER</h3>
+            <p>Aprende a modelar entidades, atributos, relaciones, cardinalidades y casos como especialización y generalización.</p>
+          </article>
+          <article class="doc-card" data-keywords="relacional algebra seleccion proyeccion union interseccion division join">
+            <h3>Modelo relacional</h3>
+            <p>Domina claves, tuplas, dominio, transformación ER→relacional y el álgebra relacional completa.</p>
+          </article>
+          <article class="doc-card" data-keywords="sql select from where order by group by having join subconsultas">
+            <h3>Consultas SQL</h3>
+            <p>Consulta, filtra, agrupa y combina datos con ejemplos prácticos de SQL estándar.</p>
+          </article>
+        </section>
+
+        <section id="tema-1" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 1</span>
+            <h3>Base de datos, SGBD y arquitectura</h3>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="base de datos datos almacenamiento persistencia">
+              <h4>Base de datos</h4>
+              <p>Es un conjunto organizado de datos relacionados entre sí, persistentes y accesibles por un sistema.</p>
+            </article>
+            <article class="doc-card" data-keywords="sgbd sistema gestor base datos mysql sql server oracle">
+              <h4>SGBD</h4>
+              <p>El Sistema Gestor de Base de Datos se encarga de almacenar, gestionar y proteger los datos.</p>
+            </article>
+            <article class="doc-card" data-keywords="arquitectura capas interfaz motor almacenamiento">
+              <h4>Arquitectura</h4>
+              <p>Normalmente se estructura con capas de interfaz, motor, almacenamiento y optimización de consultas.</p>
+            </article>
+            <article class="doc-card" data-keywords="ddl dml dcl tcl create alter drop grant revoke commit rollback">
+              <h4>DDL · DML · DCL · TCL</h4>
+              <p>DDL define estructuras, DML manipula datos, DCL controla permisos y TCL gestiona transacciones.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="tema-2" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 2</span>
+            <h3>Modelo Entidad Relación</h3>
+          </div>
+          <div class="diagram-wrap">
+            <div class="mer-box">
+              <div class="entity">CLIENTE</div>
+              <div class="attribute">id_cliente</div>
+              <div class="attribute">nombre</div>
+              <div class="attribute">email</div>
+              <div class="relation">REALIZA</div>
+              <div class="entity">PEDIDO</div>
+              <div class="attribute">id_pedido</div>
+              <div class="attribute">fecha</div>
+            </div>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="entidad entidad fuerte atributo atributo simple compuesto">
+              <h4>Entidades y atributos</h4>
+              <p>La entidad representa un concepto del mundo real; los atributos describen sus propiedades.</p>
+            </article>
+            <article class="doc-card" data-keywords="relaciones cardinalidad uno a muchos muchos a muchos uno a uno">
+              <h4>Relaciones y cardinalidad</h4>
+              <p>Las relaciones enlazan entidades y la cardinalidad define cuántas ocurrencias participan.</p>
+            </article>
+            <article class="doc-card" data-keywords="entidades debiles clave parcial clave discriminante">
+              <h4>Entidades débiles</h4>
+              <p>Dependen de otra entidad para existir y necesitan una clave parcial o discriminante.</p>
+            </article>
+            <article class="doc-card" data-keywords="generalizacion especializacion herencia supertipo subtipo">
+              <h4>Generalización y especialización</h4>
+              <p>Se usan para modelar jerarquías y clasificar entidades con relaciones de herencia.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="tema-3" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 3</span>
+            <h3>Modelo Relacional y Álgebra Relacional</h3>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="relacion tupla atributo dominio clave primary key foreign key candidate">
+              <h4>Conceptos</h4>
+              <p>Relación: tabla; tupla: fila; atributo: columna; dominio: conjunto de valores válidos.</p>
+            </article>
+            <article class="doc-card" data-keywords="clave primaria clave foranea clave candidata clave alternativa">
+              <h4>Claves</h4>
+              <p>La clave primaria identifica un registro, la clave foránea referencia otra tabla y las canditadas son alternativas.</p>
+            </article>
+            <article class="doc-card" data-keywords="transformacion er relacional entidades atributos relaciones tablas">
+              <h4>ER → Relacional</h4>
+              <p>Una entidad se convierte en tabla; un atributo pasa a columna; una relación puede producir clave foránea.</p>
+            </article>
+            <article class="doc-card" data-keywords="algebra relacional seleccion proyeccion union interseccion diferencia producto join division">
+              <h4>Álgebra relacional</h4>
+              <p>Selección, proyección, unión, intersección, diferencia, producto cartesiano, join y división.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="tema-4" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 4</span>
+            <h3>DDL con constraints</h3>
+          </div>
+          <div class="example-block">
+            <div class="code-header">
+              <span>SQL</span>
+              <button class="copy-button" data-copy-target="ddlExample">Copiar</button>
+            </div>
+            <pre id="ddlExample"><code>CREATE DATABASE gestion_ventas;
+GO
+
+CREATE TABLE clientes (
+    id_cliente INT PRIMARY KEY IDENTITY(1,1),
+    nombre NVARCHAR(100) NOT NULL,
+    email NVARCHAR(120) UNIQUE,
+    edad INT CHECK (edad &gt;= 18),
+    fecha_alta DATETIME DEFAULT GETDATE()
+);
+
+ALTER TABLE clientes ADD telefono NVARCHAR(15);
+ALTER TABLE clientes ALTER COLUMN nombre NVARCHAR(120) NOT NULL;
+
+DROP TABLE clientes;
+TRUNCATE TABLE clientes;</code></pre>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="create database create table alter drop truncate primary key foreign key unique check default not null">
+              <h4>Comandos esenciales</h4>
+              <p>CREATE, ALTER, DROP y TRUNCATE permiten definir, modificar y borrar objetos de la base de datos.</p>
+            </article>
+            <article class="doc-card" data-keywords="constraint constraints primary key foreign key unique check default not null">
+              <h4>Constraints</h4>
+              <p>PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, DEFAULT y NOT NULL garantizan integridad y consistencia.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="tema-5" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 5</span>
+            <h3>Consultas SQL</h3>
+          </div>
+          <div class="example-block">
+            <div class="code-header">
+              <span>SQL</span>
+              <button class="copy-button" data-copy-target="selectExample">Copiar</button>
+            </div>
+            <pre id="selectExample"><code>SELECT
+    c.nombre,
+    COUNT(p.id_pedido) AS total_pedidos
+FROM clientes c
+LEFT JOIN pedidos p ON p.id_cliente = c.id_cliente
+WHERE c.activo = 1
+GROUP BY c.nombre
+HAVING COUNT(p.id_pedido) &gt;= 1
+ORDER BY total_pedidos DESC;</code></pre>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="select from where order by group by having distinct top like between in is null join inner left right full cross subconsultas exists union intersect except count sum avg min max">
+              <h4>Cláusulas y funciones</h4>
+              <p>SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, DISTINCT, TOP, LIKE, BETWEEN, IN, IS NULL, JOIN y funciones agregadas.</p>
+            </article>
+            <article class="doc-card" data-keywords="join inner left right full cross subconsulta">
+              <h4>Joins y subconsultas</h4>
+              <p>Los joins combinan filas entre tablas; las subconsultas encapsulan lógica de filtrado o agregación.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="tema-6" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 6</span>
+            <h3>INSERT, UPDATE, DELETE y SELECT INTO</h3>
+          </div>
+          <div class="example-block">
+            <div class="code-header">
+              <span>SQL</span>
+              <button class="copy-button" data-copy-target="dmlExample">Copiar</button>
+            </div>
+            <pre id="dmlExample"><code>INSERT INTO clientes (nombre, email, activo)
+VALUES ('Ana García', 'ana@correo.com', 1);
+
+UPDATE clientes
+SET activo = 0
+WHERE id_cliente = 10;
+
+DELETE FROM clientes
+WHERE id_cliente = 12;
+
+SELECT *
+INTO clientes_backup
+FROM clientes
+WHERE activo = 1;</code></pre>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="insert update delete select into">
+              <h4>Manipulación de datos</h4>
+              <p>INSERT añade filas, UPDATE modifica, DELETE elimina y SELECT INTO crea una nueva tabla a partir de una consulta.</p>
+            </article>
+            <article class="doc-card" data-keywords="transacciones integridad">
+              <h4>Buena práctica</h4>
+              <p>Usa WHERE en UPDATE/DELETE y valida siempre el resultado antes de confirmar la operación.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="tema-7" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 7</span>
+            <h3>Transact SQL</h3>
+          </div>
+          <div class="example-block">
+            <div class="code-header">
+              <span>T-SQL</span>
+              <button class="copy-button" data-copy-target="tsqlExample">Copiar</button>
+            </div>
+            <pre id="tsqlExample"><code>DECLARE @contador INT = 0;
+DECLARE @mensaje NVARCHAR(100);
+
+SET @mensaje = 'Inicio de proceso';
+PRINT @mensaje;
+
+WHILE @contador &lt; 3
+BEGIN
+    SET @contador += 1;
+    IF @contador = 2
+        PRINT 'Llegó a 2';
+    ELSE
+        PRINT CONCAT('Valor actual: ', @contador);
+END;
+
+BEGIN TRY
+    SELECT 1 / 0;
+END TRY
+BEGIN CATCH
+    PRINT ERROR_MESSAGE();
+END CATCH;</code></pre>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="declare set print if case while break continue try catch raiserror throw @@error @@rowcount begin transaction commit rollback">
+              <h4>Control de flujo y transacciones</h4>
+              <p>DECLARE, SET, PRINT, IF, CASE, WHILE, TRY/CATCH, RAISERROR, THROW, @@ERROR y @@ROWCOUNT.</p>
+            </article>
+            <article class="doc-card" data-keywords="begin transaction commit rollback save transaction">
+              <h4>Transacciones</h4>
+              <p>Garantizan consistencia al ejecutar operaciones como una sola unidad lógica.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="tema-8" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 8</span>
+            <h3>Procedimientos y funciones</h3>
+          </div>
+          <div class="example-block">
+            <div class="code-header">
+              <span>T-SQL</span>
+              <button class="copy-button" data-copy-target="procExample">Copiar</button>
+            </div>
+            <pre id="procExample"><code>CREATE PROCEDURE sp_ventas_por_cliente
+    @id_cliente INT,
+    @total DECIMAL(18,2) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT @total = SUM(total)
+    FROM pedidos
+    WHERE id_cliente = @id_cliente;
+END;</code></pre>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="stored procedure procedimiento parametros output">
+              <h4>Procedimientos</h4>
+              <p>Un procedimiento encapsula lógica y puede recibir parámetros de entrada o salida.</p>
+            </article>
+            <article class="doc-card" data-keywords="funciones scalar inline table valued">
+              <h4>Funciones</h4>
+              <p>Las funciones devuelven valores reutilizables y pueden ser escalares o de tabla.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="tema-9" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 9</span>
+            <h3>Triggers</h3>
+          </div>
+          <div class="example-block">
+            <div class="code-header">
+              <span>T-SQL</span>
+              <button class="copy-button" data-copy-target="triggerExample">Copiar</button>
+            </div>
+            <pre id="triggerExample"><code>CREATE TRIGGER trg_audita_pedidos
+ON pedidos
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO auditoria_pedidos (id_pedido, accion, fecha)
+    SELECT i.id_pedido, 'INSERT/UPDATE', GETDATE()
+    FROM inserted i;
+END;</code></pre>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="trigger after instead of inserted deleted auditoria">
+              <h4>Tipos de trigger</h4>
+              <p>AFTER se ejecuta tras la operación y INSTEAD OF sustituye la acción original.</p>
+            </article>
+            <article class="doc-card" data-keywords="inserted deleted audit auditoria bitacora">
+              <h4>inserted y deleted</h4>
+              <p>Estas tablas virtuales permiten inspeccionar los valores nuevos o antiguos afectados por la operación.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="tema-10" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Tema 10</span>
+            <h3>Cursores</h3>
+          </div>
+          <div class="example-block">
+            <div class="code-header">
+              <span>T-SQL</span>
+              <button class="copy-button" data-copy-target="cursorExample">Copiar</button>
+            </div>
+            <pre id="cursorExample"><code>DECLARE c_ventas CURSOR FOR
+SELECT id_cliente, total
+FROM pedidos;
+
+OPEN c_ventas;
+DECLARE @id INT, @total DECIMAL(18,2);
+
+FETCH NEXT FROM c_ventas INTO @id, @total;
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    PRINT CONCAT('Cliente: ', @id, ' Total: ', @total);
+    FETCH NEXT FROM c_ventas INTO @id, @total;
+END;
+
+CLOSE c_ventas;
+DEALLOCATE c_ventas;</code></pre>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="cursor declare cursor open fetch while @@fetch_status close deallocate">
+              <h4>Flujo del cursor</h4>
+              <p>DECLARE CURSOR, OPEN, FETCH, WHILE, @@FETCH_STATUS, CLOSE y DEALLOCATE.</p>
+            </article>
+            <article class="doc-card" data-keywords="ejemplo cursor fila a fila">
+              <h4>Uso</h4>
+              <p>Se usan para procesar registros uno a uno, aunque hoy se prefieren soluciones de conjunto.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="mongodb" class="docs-section">
+          <div class="section-heading">
+            <span class="label">MongoDB</span>
+            <h3>Introducción, colecciones, documentos y CRUD</h3>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="mongodb introduccion documento coleccion crud find insertone insertmany updateone updatemany deleteone deletemany aggregate lookup sort limit skip indices indexes operadores set inc push pull or and in gte lte">
+              <h4>MongoDB</h4>
+              <p>MongoDB guarda documentos JSON-like en colecciones. Su modelo es flexible y orientado a documentos.</p>
+            </article>
+            <article class="doc-card" data-keywords="find insertone insertmany updateone updatemany deleteone deletemany aggregate lookup sort limit skip">
+              <h4>CRUD y agregación</h4>
+              <p>find, insertOne, insertMany, updateOne, updateMany, deleteOne, deleteMany, aggregate y operaciones como sort, limit y skip.</p>
+            </article>
+            <article class="doc-card" data-keywords="indices index unique compound text">
+              <h4>Índices</h4>
+              <p>Los índices aceleran consultas y reducen el coste de lectura, aunque aumentan el espacio de almacenamiento.</p>
+            </article>
+            <article class="doc-card" data-keywords="operadores set inc push pull or and in gte lte">
+              <h4>Operadores</h4>
+              <p>Se usan para actualizar campos, comparar valores y construir filtros avanzados.</p>
+            </article>
+          </div>
+          <div class="info-grid">
+            <article class="doc-card">
+              <h4>Documentos</h4>
+              <p>Un documento MongoDB es un registro flexible con clave-valor, sin esquema rígido. Esto facilita la evolución del modelo.</p>
+            </article>
+            <article class="doc-card">
+              <h4>Collection</h4>
+              <p>Una colección agrupa documentos y suele contener una familia común. No exige una estructura exacta en todos los registros.</p>
+            </article>
+            <article class="doc-card">
+              <h4>lookup</h4>
+              <p>Permite hacer joins entre colecciones a nivel de agregación y es muy útil para modelos de documentos relacionados.</p>
+            </article>
+          </div>
+          <div class="example-block">
+            <div class="code-header">
+              <span>JavaScript / MongoDB</span>
+              <button class="copy-button" data-copy-target="mongoExample">Copiar</button>
+            </div>
+            <pre id="mongoExample"><code>db.ventas.find({ "estado": "pagado" })
+  .sort({ fecha: -1 })
+  .limit(5);
+
+db.ventas.updateMany(
+  { total: { $gte: 100 } },
+  { $set: { prioridad: "alta" } }
+);
+
+db.ventas.aggregate([
+  { $match: { estado: "pagado" } },
+  { $group: { _id: "$cliente", total: { $sum: "$total" } } }
+]);</code></pre>
+          </div>
+        </section>
+
+        <section id="extras" class="docs-section">
+          <div class="section-heading">
+            <span class="label">Extras</span>
+            <h3>Trucos, errores frecuentes y chuleta final</h3>
+          </div>
+          <div class="doc-grid">
+            <article class="doc-card" data-keywords="trucos consejos optimizacion sql index join where limit">
+              <h4>Trucos</h4>
+              <p>Usa índices en columnas de filtrado, evita SELECT * y prueba la ejecución con EXPLAIN o PLAN.</p>
+            </article>
+            <article class="doc-card" data-keywords="errores frecuentes falta where update delete join null">
+              <h4>Errores frecuentes</h4>
+              <p>Olvidar WHERE en UPDATE/DELETE, confundir JOIN con CROSS JOIN, no controlar NULL y no usar alias claros.</p>
+            </article>
+            <article class="doc-card" data-keywords="chuleta final resumen sql ddl dml">
+              <h4>Chuleta final</h4>
+              <p>Recuerda: primero modela, luego normaliza, después define tablas y solo al final consulta y mantiene datos.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" type="button" aria-label="Volver arriba">↑</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

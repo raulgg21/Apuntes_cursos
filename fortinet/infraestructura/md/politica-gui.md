@@ -286,4 +286,3 @@ Puede abrir la configuración de interfaces, pero el botón **OK** no está disp
 - **Trusted Hosts**: restringe desde qué IP puede acceder un administrador.
 - **Two-Factor Authentication (2FA)**: FortiToken, Email o SMS.
 - **CLI** ofrece opciones de configuración adicionales respecto a la GUI.
-```

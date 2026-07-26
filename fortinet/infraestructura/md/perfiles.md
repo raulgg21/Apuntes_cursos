@@ -1,7 +1,4 @@
-````md
-# Resumen: Administración de Usuarios Locales y Perfiles en FortiGate
-
-## Objetivo
+# Objetivo
 
 Aprender a crear y administrar **administradores locales** y **perfiles de administración (Admin Profiles)** para controlar qué puede hacer cada usuario dentro del FortiGate.
 
@@ -277,4 +274,3 @@ ni siquiera aparecerá.
 - Aplicar el principio de mínimos privilegios.
 - Restringir el acceso mediante **Trusted Hosts**.
 - Habilitar autenticación de doble factor (2FA).
-````

@@ -1,59 +1,83 @@
-const content = document.getElementById("content");
-const params = new URLSearchParams(window.location.search);
+document.addEventListener("DOMContentLoaded", () => {
+    const content = document.getElementById("content");
+    const params = new URLSearchParams(window.location.search);
 
-// Documento predeterminado
-const documentName = params.get("doc") || "ip-estatica";
+    // Documento predeterminado.
+    // Debe coincidir con un archivo real dentro de la carpeta md.
+    const documentName = params.get("doc") || "ip-estatica-gui";
 
-// Solo permitimos nombres sencillos para evitar rutas incorrectas
-const validDocumentName = /^[a-z0-9-]+$/i.test(documentName);
+    // Evita nombres con rutas como ../
+    const validDocumentName = /^[a-z0-9-]+$/i.test(documentName);
 
-async function loadMarkdown() {
-    if (!validDocumentName) {
-        showError("El nombre del documento no es válido.");
-        return;
-    }
-
-    const markdownPath = `md/${documentName}.md`;
-
-    try {
-        const response = await fetch(markdownPath);
-
-        if (!response.ok) {
-            throw new Error(
-                `No se encontró el archivo: ${markdownPath}`
-            );
+    async function loadMarkdown() {
+        if (!content) {
+            console.error('No existe ningún elemento con id="content".');
+            return;
         }
 
-        const markdown = await response.text();
+        if (!validDocumentName) {
+            showError("El nombre del documento no es válido.");
+            return;
+        }
 
-        content.innerHTML = marked.parse(markdown);
+        const markdownPath = `./md/${documentName}.md`;
 
-        updateActiveLink();
-    } catch (error) {
-        console.error(error);
+        content.innerHTML = `
+            <p class="loading">
+                Cargando documentación...
+            </p>
+        `;
 
-        showError(`
-            No se pudo cargar el documento
-            <strong>${markdownPath}</strong>.
-            Comprueba que el archivo exista y que el nombre coincida exactamente.
-        `);
+        try {
+            const response = await fetch(markdownPath);
+
+            if (!response.ok) {
+                throw new Error(
+                    `Error HTTP ${response.status}: no se encontró ${markdownPath}`
+                );
+            }
+
+            const markdown = await response.text();
+
+            if (typeof marked === "undefined") {
+                throw new Error(
+                    "La librería marked no se ha cargado correctamente."
+                );
+            }
+
+            content.innerHTML = marked.parse(markdown);
+
+            updateActiveLink();
+        } catch (error) {
+            console.error("Error al cargar el Markdown:", error);
+
+            showError(`
+                No se pudo cargar el documento
+                <strong>${markdownPath}</strong>.
+                <br><br>
+                ${error.message}
+            `);
+        }
     }
-}
 
-function updateActiveLink() {
-    document.querySelectorAll(".sidebar-nav a").forEach((link) => {
-        const isActive = link.dataset.doc === documentName;
-        link.classList.toggle("active", isActive);
-    });
-}
+    function updateActiveLink() {
+        document
+            .querySelectorAll(".sidebar-nav a[data-doc]")
+            .forEach((link) => {
+                const isActive = link.dataset.doc === documentName;
 
-function showError(message) {
-    content.innerHTML = `
-        <div class="error-message">
-            <h1>Documento no encontrado</h1>
-            <p>${message}</p>
-        </div>
-    `;
-}
+                link.classList.toggle("active", isActive);
+            });
+    }
 
-loadMarkdown();
+    function showError(message) {
+        content.innerHTML = `
+            <div class="error-message">
+                <h1>Documento no encontrado</h1>
+                <p>${message}</p>
+            </div>
+        `;
+    }
+
+    loadMarkdown();
+});

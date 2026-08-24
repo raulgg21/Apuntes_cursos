@@ -1,6 +1,4 @@
-# Clase: Enrutamiento estático entre dos redes FortiGate
-
-## Objetivo
+# Objetivo
 
 Configurar **rutas estáticas** para comunicar dos redes diferentes protegidas por dos FortiGate.
 

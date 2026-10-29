@@ -57,7 +57,7 @@ Los filtros se definen usando sintaxis estándar tipo pcap / tcpdump. Para combi
 
 El parámetro de verbosidad determina cuánta información de cada paquete se imprime en pantalla:
 
-![Niveles de Verbosidad](./fortinet/infraestructura/img/Verbosidad+del+sniffer.png)
+![Niveles de Verbosidad](./img//Verbosidad+del+sniffer.png)
 
 | Nivel | Descripción de la Salida | Uso Recomendado |
 | :---: | :--- | :--- |
